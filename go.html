@@ -79,6 +79,7 @@
               <div class="td-mid">
                 <div class="time-left">登记时间</div>
               </div>
+
               <!-- <div class="td-right"><div class="time-right">{{text}}</div></div> -->
               <div class="td-right">
                 <!-- <div class="scrolltxt">
@@ -90,11 +91,44 @@
                     </div>
                   </div>
                 </div> -->
-                <marquee scrollamount="3">
+                <marquee scrollamount="3" scrolldelay='0'>
+                  <script>
+                    window.onload=function(){
+                        setTimeout("getDT()",1);//定时器，每秒执行一次
+                    }
+                    function getDT(){
+                    var now=new Date();//获取当前时间
+                    var y=now.getFullYear();//获取年份
+                     var M=now.getMonth()+1;//获取月份
+                    if(M<10){
+                       M="0"+M;
+                     }
+                     var d=now.getDate();//获取日期
+                     if(d<10){
+                         d="0"+d;
+                     }
+                     var h=now.getHours();//获取小时
+                     if(h<10){
+                         h="0"+h;
+                     }
+                     var m=now.getMinutes();//获取分钟
+                     if(m<10){
+                        m="0"+m;
+                     }
+                     var s=now.getSeconds();//获取秒数
+                     if(s<10){
+                         s="0"+s;
+                     }
+                     var day=now.getDay();
+                     var str=y+"-"+M+"-"+d+" "+h+":"+m+":"+s;
+                    document.getElementById("dateTime").innerHTML=str + ' ' + str + ' ' + str;
+                    }
+                </script>
                   <div id="time" behavior="scroll"
-                    style="font-family: Roboto;font-weight: bolder;font-size: 18.72px;color: #00c4a4 ;">
-                    2020-12-13 11:16:29</div>
-                  <!--div id="timecpy" style="font-family: Roboto;font-weight: bolder;font-size: 18.72px;color: #00c4a4 ;">
+                  
+                    style="font-family: Roboto;font-weight: bolder;font-size: 18.72px;color: #00c4a4 ;"><div id="dateTime"></div></div>
+                    
+                    <!--div id="timecpy" style="font-family: Roboto;font-weight: bolder;font-size: 18.72px;color: #00c4a4 ;">
                     2020-12-13 11:16:29</div-->
 
                 </marquee>
